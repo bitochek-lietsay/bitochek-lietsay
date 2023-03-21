@@ -6,7 +6,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "git add .output/public && git commit -m \"Update dist\" && git subtree push --prefix .output/public origin index --force"
+    "deploy": "git add .output/public && git commit -m \"Update dist\" && git subtree push --prefix .output/public origin index"
   },
   "devDependencies": {
     "@iconify/json": "2.2.32",
