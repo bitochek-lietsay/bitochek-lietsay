@@ -1,8 +1,29 @@
 <template>
-  <div v-if="examples">
+  <div
+    v-if="examples"
+    class="promo-examples"
+  >
     <div style="padding-bottom: 32px;" v-html="textHtml"></div>
-    <!-- <button type="button" @click="prev">Prev</button>
-    <button type="button" @click="next">Next</button> -->
+
+    <template
+      v-if="!$viewport.isLessThan('tablet')"
+    >
+      <button
+        type="button"
+        class="promo-examples-nav -prev"
+        @click="prev"
+      >
+        <MdiChevronLeft/>
+      </button>
+      
+      <button
+        type="button"
+        class="promo-examples-nav -next"
+        @click="next"
+      >
+        <MdiChevronRight/>
+      </button>
+    </template>
 
     <Carousel v-model="currentSlide" :itemsToShow="itemsToShow" :transition="500" snapAlign="center">
       <template #slides>
@@ -20,9 +41,6 @@
           </div>
         </Slide>
       </template>
-  
-
-      <!-- <Slide :index="examples.messages.length + Number(itemsToShow >= 2)" key="last-empty" v-if="itemsToShow >= 2"/> -->
     </Carousel>
   </div>
 </template>
@@ -33,10 +51,14 @@ import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
 import {useActive} from './useActive'
 import {marked} from 'marked'
+import MdiChevronRight from '~icons/mdi/chevron-right'
+import MdiChevronLeft from '~icons/mdi/chevron-left'
 
 export default {
   name: 'App',
   components: {
+    MdiChevronRight,
+    MdiChevronLeft,
     Carousel,
     Slide,
   },
@@ -70,8 +92,12 @@ export default {
       return props.examples.messages
     })
 
+    watch(itemsToShow, (itemsToShowVal) => {
+      currentSlide.value = Number(itemsToShowVal >= 2)
+    }, {immediate: true})
+
     const next = () => {
-      currentSlide.value = Math.min(4 + Number(itemsToShow.value >= 2), currentSlide.value + 1)
+      currentSlide.value = Math.min(props.examples.messages.length - Number(itemsToShow.value < 2), currentSlide.value + 1)
     }
 
     const prev = () => {
@@ -92,49 +118,75 @@ export default {
 
 
 <style>
-.carousel__slide {
+.promo-examples {
+  position: relative;
+}
+.promo-examples .carousel__slide {
   padding: 5px;
 }
 
-.carousel__viewport {
+.promo-examples .carousel__viewport {
   perspective: 2000px;
+  overflow: visible;
 }
 
-.carousel__track {
+.promo-examples .carousel__track {
   transform-style: preserve-3d;
 }
 
-.carousel__slide--sliding {
+.promo-examples .carousel__slide--sliding {
   transition: opacity 0.3s, transform 0.5s;
 }
 
-.carousel__slide {
+.promo-examples .carousel__slide {
   opacity: 0;
   transform: rotateY(-90deg) scale(0.7);
 }
 
-.carousel__slide--active ~ .carousel__slide {
+.promo-examples .carousel__slide--active ~ .carousel__slide {
   transform: rotateY(90deg) scale(0.7);
 }
 
-.carousel__slide--prev {
+.promo-examples .carousel__slide--prev {
   opacity: 1;
   transform: rotateY(-10deg) scale(0.8) !important;
 }
 
-.carousel__slide--next {
+.promo-examples .carousel__slide--next {
   opacity: 1;
   transform: rotateY(10deg) scale(0.8) !important;
 }
 
-.carousel__slide--active {
+.promo-examples .carousel__slide--active {
   opacity: 1;
   transform: rotateY(0) scale(1);
 }
 
-.carousel__item {
+.promo-examples .carousel__item {
   display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.promo-examples .promo-examples-nav {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  color: var(--promo-example-nav-color);
+  position: absolute;
+  font-size: 48px;
+  top: 50%;
+  z-index: 1;
+}
+
+.promo-examples .promo-examples-nav.-prev {
+  left: 0;
+}
+
+.promo-examples .promo-examples-nav.-next {
+  right: 0;
 }
 </style>

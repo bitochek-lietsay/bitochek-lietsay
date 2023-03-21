@@ -6,7 +6,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "git add .output/public && git commit -m \"Update dist\" && git subtree push --prefix .output/public origin index"
+    "deploy": "yarn generate && git add .output/public && git commit -m \"Update dist\" && git push origin `git subtree split --prefix .output/public master`:gh-pages --force"
   },
   "devDependencies": {
     "@iconify/json": "2.2.32",

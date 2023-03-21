@@ -41,7 +41,7 @@ export default defineComponent({
 <style scoped>
 .promo-content {
     padding-top: 32px;
-    padding-bottom: 64px;
+    padding-bottom: 128px;
     padding-left: 8px;
     padding-right: 8px;
 
@@ -86,5 +86,11 @@ export default defineComponent({
 
 .promo-content > .content .aside {
   max-width: 600px;
+}
+
+@media only screen and (max-width: 1023px) {
+  .promo-content > .content .aside {
+    display: none;
+  }
 }
 </style>

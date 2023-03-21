@@ -1,6 +1,6 @@
 <template>
     <nuxt-picture
-        src="/promo/slezisatoshi/images/slezisatoshi-promo.png"
+        src="/promo/slezi-satoshi/images/slezisatoshi-promo.png"
         :imgAttrs="{id:'my-id', class:'image', style:'display:block'}"
     />
 </template>

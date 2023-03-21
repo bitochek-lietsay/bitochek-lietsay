@@ -1,17 +1,15 @@
 <template>
-    <div class="promo-description">
-      Слив легендарного приватного канала Слезы Сатоши! Получи бесплатный доступ к обзорам рынка, таблице разлоков и к портфелю Рафаэля
-      <FluentEmojiMoneyMouthFace style="vertical-align: text-top;"/>
-    </div>
+    <div class="promo-description" v-html="description"></div>
 </template>
 
 <script lang="ts">
-import FluentEmojiMoneyMouthFace from '~icons/fluent-emoji/money-mouth-face'
-
 export default defineComponent({
-  components: {
-    FluentEmojiMoneyMouthFace,
-  }
+  props: {
+    description: {
+      type: String,
+      required: true,
+    }
+  },
 })
 </script>
 
