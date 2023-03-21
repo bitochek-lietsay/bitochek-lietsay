@@ -1,5 +1,13 @@
+import path from 'node:path'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    app: {
+        rootId: '__slezi-satoshi__',
+    },
+    nitro: {
+        plugins: [path.resolve('./nitro/plugins/yandexMetrikaPlugin.ts')]
+    },
     telemetry: false,
     modules: [
         ['unplugin-icons/nuxt', {
