@@ -1,1 +1,0 @@
-git worktree add .output/public index
