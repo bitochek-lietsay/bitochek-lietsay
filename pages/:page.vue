@@ -25,6 +25,13 @@
     <template #more>
       <PromoExample :examples="promoData?.examples"/>
 
+      <div class="flex justify-center items-center mt-14">
+        <PromoAction
+          href="https://t.me/slezisatoshifree"
+          text="Перейти в канал"
+        />
+      </div>
+
       <PromoShowcase
         :isActive="false"
         description="Скоро мы запустим сливы других популярных закрытых каналов. Подписывайся на наш бесплатный слив канала 'Слезы Сатоши' что бы ничего не пропустить"
