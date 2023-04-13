@@ -1,5 +1,8 @@
 <template>
   <div ref="root" class="speaker-video" :class="classList" :style="styleList" @click="() => toggleOpen()">
+    <div class="close-icon-wrapper" v-if="isOpen">
+      <MdiClose />
+    </div>
     <video
       v-show="isShowVideo"
       ref="video"
@@ -20,6 +23,7 @@
 
 <script lang="ts">
 import { resolveVideoPath } from '~~/utils/video/resolveVideoPath'
+import MdiClose from '~icons/mdi/close'
 
 export default defineComponent({
   setup() {
@@ -81,7 +85,10 @@ export default defineComponent({
       isShowVideo,
       labelText,
     }
-  }
+  },
+  components: {
+    MdiClose,
+  },
 })
 </script>
 
@@ -146,6 +153,13 @@ export default defineComponent({
 .speaker-video > .video::-webkit-media-controls-mute-button,
 .speaker-video > .video::-webkit-media-controls-volume-slider,
 .speaker-video > .video::-webkit-media-controls-play-button {display: none;}
+
+.speaker-video > .close-icon-wrapper {
+  position: absolute;
+  z-index: 100;
+  top: 8px;
+  left: 8px;
+}
 
 .speaker-video > .small-label {
   border-radius: var(--label-border-radius);
