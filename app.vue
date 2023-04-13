@@ -9,7 +9,7 @@
 
     <DebugHead />
   </div> -->
-  <SpeakerVideo v-if="viewport.isGreaterThan('mobileWide')"/>
+  <SpeakerVideo v-if="viewport.isGreaterThan('mobileWide') && false"/>
 </template>
 
 <script setup lang="ts">
