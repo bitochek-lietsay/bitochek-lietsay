@@ -1,4 +1,6 @@
 path: "slezi-satoshi"
+meta:
+  title: 'Слив приватного канала "Слезы Сатоши"'
 isActive: true
 showcase:
   name: "Слезы Сатоши"

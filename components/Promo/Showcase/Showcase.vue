@@ -1,20 +1,31 @@
 <template>
   <div class="description">
-    Скоро мы запустим сливы других популярных закрытых каналов. Подписывайся на наш бесплатный слив канала "Слезы Сатоши" что бы ничего не пропустить
+    {{ description }}
   </div>
   <div class="list">
     <PromoShowcaseItem
       v-for="promo in items"
       :id="promo.path"
       :name="promo.showcase.name"
+      :isActive="isActive"
     />
   </div>
 </template>
 
 <script lang="ts">
 export default defineComponent({
-  setup() {
-    const { data: items } = useAsyncData("allPromoData", () => queryContent().where({isActive: false}).find());
+  props: {
+    isActive: {
+      type: Boolean,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    }
+  },
+  setup(props) {
+    const { data: items } = useAsyncData(`allPromoData-${props.isActive}`, () => queryContent().where({isActive: props.isActive}).find());
 
     return {
       items

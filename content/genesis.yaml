@@ -1,4 +1,8 @@
 path: "genesis"
+
+meta:
+  title: 'Слив приватного канала "Genesis"'
+
 isActive: false
 showcase:
   name: "Genesis (Ридван)"

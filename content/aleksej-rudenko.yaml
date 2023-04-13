@@ -1,4 +1,8 @@
 path: "aleksej-rudenko"
+
+meta:
+  title: 'Слив приватного канала "Алексей Руденко"'
+
 isActive: false
 showcase:
   name: "Алексей Руденко"

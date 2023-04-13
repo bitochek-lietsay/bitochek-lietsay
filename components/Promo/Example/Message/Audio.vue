@@ -48,13 +48,19 @@ export default defineComponent({
         const {currentSlide} = useActive()
         const audio = ref<HTMLAudioElement>()
         const { playing, currentTime, duration, muted, volume} = useMediaControls(audio, {
-            src: toRef(props, 'src'),
+          src: toRef(props, 'src'),
         })
 
         onMounted(() => {
-            volume.value = 1
-            audio.value = document.createElement('audio')
-            document.body.appendChild(audio.value)
+          volume.value = 1
+          audio.value = document.createElement('audio')
+          document.body.appendChild(audio.value)
+        })
+
+        onUnmounted(() => {
+          if (audio.value) {
+            document.body.removeChild(audio.value)
+          }
         })
 
         const togglePlay = (value: boolean) => {

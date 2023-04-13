@@ -19,6 +19,7 @@ export default defineNuxtConfig({
         'nuxt-viewport',
         '@nuxt/content',
         'nuxt-unhead',
+        '@nuxtjs/tailwindcss',
     ],
     viewport: {
       /* Viewport options */

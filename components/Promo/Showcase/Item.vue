@@ -1,6 +1,6 @@
 <template>
-  <div class="item">
-    <div class="soon">Скоро</div>
+  <component :is="componentName" class="item" v-bind="componentProps">
+    <div class="soon" v-if="!isActive">Скоро</div>
     <div class="label">{{ name }}</div>
     <nuxt-img
       :src="imgUrl"
@@ -12,10 +12,12 @@
       loading="lazy"
       format="webp"
     />
-  </div>
+  </component>
 </template>
 
 <script lang="ts">
+import { RouterLink } from 'vue-router'
+
 export default defineComponent({
   props: {
     id: {
@@ -26,13 +28,31 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    isActive: {
+      type: Boolean,
+      required: true,
+    }
   },
   setup(props) {
     const imgUrl = computed(() => `/promo/${props.id}/showcase.png`)
+    const componentName = computed(() => props.isActive ? 'RouterLink' : 'div')
+    const componentProps = computed(() => {
+      if (props.isActive) {
+        return {
+          to: '/slezi-satoshi',
+          class: {'-is-active': true},
+        }
+      }
+    })
 
     return {
+      componentProps,
+      componentName,
       imgUrl,
     }
+  },
+  components: {
+    RouterLink
   }
 })
 </script>
@@ -45,12 +65,18 @@ export default defineComponent({
   position: relative;
   overflow: hidden;
   margin: auto;
+  contain: paint;
+}
+
+.item.-is-active:hover > .cover {
+  transform: scale(1.2) rotate(3deg);
 }
 
 .cover {
   width: 100%;
   height: 100%;
   display: block;
+  transition: transform 0.2s;
 }
 
 .soon {
@@ -68,5 +94,7 @@ export default defineComponent({
   width: 100%;
   background: rgba(0,0,0,0.6);
   box-sizing: border-box;
+  z-index: 3;
+  color: #fff;
 }
 </style>

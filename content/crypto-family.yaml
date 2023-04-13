@@ -1,4 +1,8 @@
 path: "crypto-family"
+
+meta:
+  title: 'Слив приватного канала "Crypto Family"'
+
 isActive: false
 showcase:
   name: "Crypto Family"

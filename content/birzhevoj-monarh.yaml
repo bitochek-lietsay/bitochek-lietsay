@@ -1,4 +1,8 @@
 path: "birzhevoj-monarh"
+
+meta:
+  title: 'Слив приватного канала "Биржевой Монарх"'
+
 isActive: false
 showcase:
   name: "Биржевой Монарх"

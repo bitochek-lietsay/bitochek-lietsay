@@ -1,7 +1,7 @@
 <template>
   <div>
-    <PromoButton href="https://t.me/slezisatoshifree">
-      Перейти в канал <LogosTelegram style="vertical-align: sub;"/>
+    <PromoButton :href="href">
+      {{ text }} <LogosTelegram style="vertical-align: sub;" class="icon"/>
     </PromoButton>
   </div>
 </template>
@@ -10,8 +10,24 @@
 import LogosTelegram from '~icons/logos/telegram'
 
 export default defineComponent({
+  props: {
+    text: {
+      type: String,
+      required: true,
+    },
+    href: {
+      type: String,
+      required: true,
+    }
+  },
   components: {
     LogosTelegram,
   }
 })
 </script>
+
+<style scoped>
+.icon {
+  display: inline;
+}
+</style>
