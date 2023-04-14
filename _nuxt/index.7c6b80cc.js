@@ -1,0 +1,1 @@
+import{f as e,O as o,x as s,o as t,y as a}from"./entry.eb39a61d.js";const n=e({setup(){o("slezi-satoshi")}}),c={class:"promo-page"};function r(p,i,_,d,f,l){return t(),a("div",c)}const u=s(n,[["render",r]]);export{u as default};
