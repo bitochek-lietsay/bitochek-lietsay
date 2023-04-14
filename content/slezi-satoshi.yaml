@@ -23,7 +23,7 @@ examples:
       "
       media:
         type: video
-        src: '/promo/slezi-satoshi/example/video/2023-03-13-22-04-35.mp4'
+        src: '/promo/slezi-satoshi/example/video/2023-03-13-22-04-35'
     - date: 11.03.2023
       md: "
         [#USDC](https://t.me/slezisatoshifree)
@@ -74,7 +74,7 @@ examples:
       "
       media:
         type: video
-        src: '/promo/slezi-satoshi/example/video/23.02.2023, 15:56:35.mp4'
+        src: '/promo/slezi-satoshi/example/video/2023-02-23-15-56-35'
 
     - date: now
       md: 

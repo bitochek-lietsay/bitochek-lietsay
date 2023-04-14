@@ -9,8 +9,11 @@
     "deploy": "yarn generate && git add .output/public && git commit -m \"Update dist\" && git push origin `git subtree split --prefix .output/public master`:gh-pages --force"
   },
   "devDependencies": {
+    "@ffmpeg/core": "0.11.0",
+    "@ffmpeg/ffmpeg": "0.11.6",
     "@iconify/json": "2.2.32",
     "@nuxt/content": "^2.5.2",
+    "@nuxt/kit": "3.4.1",
     "@nuxtjs/tailwindcss": "6.6.5",
     "@types/marked": "4.0.8",
     "@vueuse/nuxt": "^9.13.0",
@@ -18,6 +21,7 @@
     "nuxt-purgecss": "^2.0.0",
     "nuxt-unhead": "1.4.14",
     "nuxt-viewport": "2.0.3",
+    "p-queue": "7.3.4",
     "push-dir": "0.4.1",
     "unplugin-icons": "^0.15.3",
     "unplugin-vue-components": "0.24.1"

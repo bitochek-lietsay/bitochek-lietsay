@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     },
     telemetry: false,
     modules: [
+        './modules/nuxtVideoModule/module.ts',
         ['unplugin-icons/nuxt', {
             
         }],
