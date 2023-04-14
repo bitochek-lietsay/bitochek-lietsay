@@ -1,6 +1,0 @@
-const Example_vue_vue_type_style_index_0_lang = ".promo-examples{position:relative}.promo-examples .carousel__slide{padding:5px}.promo-examples .carousel__viewport{overflow:visible;perspective:2000px}.promo-examples .carousel__track{transform-style:preserve-3d}.promo-examples .carousel__slide--sliding{transition:opacity .3s,transform .5s}.promo-examples .carousel__slide{opacity:0;transform:rotateY(-90deg) scale(.7)}.promo-examples .carousel__slide--active~.carousel__slide{transform:rotateY(90deg) scale(.7)}.promo-examples .carousel__slide--prev{opacity:1;transform:rotateY(-10deg) scale(.8)!important}.promo-examples .carousel__slide--next{opacity:1;transform:rotateY(10deg) scale(.8)!important}.promo-examples .carousel__slide--active{opacity:1;transform:rotateY(0) scale(1)}.promo-examples .carousel__item{align-items:center;display:flex;justify-content:center}.promo-examples .promo-examples-nav{background:transparent;border:none;color:var(--promo-example-nav-color);display:block;font-size:48px;margin:0;outline:none;padding:0;position:absolute;top:50%;z-index:1}.promo-examples .promo-examples-nav.-prev{left:0}.promo-examples .promo-examples-nav.-next{right:0}";
-
-const ExampleStyles_3f756fe4 = [Example_vue_vue_type_style_index_0_lang];
-
-export { ExampleStyles_3f756fe4 as default };
-//# sourceMappingURL=Example-styles.3f756fe4.mjs.map
